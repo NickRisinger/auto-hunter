@@ -30,7 +30,7 @@ jobs:
         shell: cmd
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: exe-file
-          path: dist/auto-hunter.exe
+          name: auto-hunter
+          path: dist/main.exe

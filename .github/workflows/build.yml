@@ -26,11 +26,11 @@ jobs:
 
       - name: Build with PyInstaller
         run: |
-          pyinstaller --onefile main.py
+          pyinstaller --onefile --name AutoHunter main.py
         shell: cmd
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: auto-hunter
-          path: dist/main.exe
+          path: dist/AutoHunter.exe

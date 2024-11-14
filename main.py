@@ -103,10 +103,8 @@ def apply_to_job(driver, job_url):
 
 def main():
     url = input("Введите ссылку с фильтрами: ")
-    # username = input("Введите логин: ")
-    # password = input("Введите пароль: ")
-    username = "79960492309"
-    password = "Nasasal00"
+    username = input("Введите логин: ")
+    password = input("Введите пароль: ")
 
     driver = webdriver.Chrome()
     driver.maximize_window()

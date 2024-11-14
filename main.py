@@ -63,16 +63,13 @@ def get_links(driver: WebDriver):
 
 def apply_to_job(driver, job_url):
     try:
-        # Переход по ссылке на вакансию
         driver.get(job_url)
         time.sleep(3)  # Задержка для загрузки страницы
 
-        # Нажимаем кнопку "Откликнуться"
         apply_button = driver.find_element(By.XPATH, '//a[@data-qa="vacancy-response-link-top"]')
         apply_button.click()
-        time.sleep(2)  # Ожидание для открытия модалки или перехода на другую страницу
+        time.sleep(2)
 
-        # Проверка первого сценария: модальное окно с textarea
         try:
             modal_textarea = driver.find_element(By.TAG_NAME, 'textarea')
             modal_textarea.send_keys(сover_letter)
@@ -83,7 +80,6 @@ def apply_to_job(driver, job_url):
         except:
             pass
 
-        # Проверка второго сценария: скролл вниз для появления textarea
         try:
             time.sleep(3)  # Ожидание для подгрузки
             show_textarea_button = driver.find_element(By.XPATH, '//button[@data-qa="vacancy-response-letter-toggle"]')
@@ -98,7 +94,6 @@ def apply_to_job(driver, job_url):
         except:
             pass
 
-        # Третий сценарий: переход на другую страницу
         print("Пропускаем вакансию. Требуется дополнительный ввод.")
 
     except Exception as e:
@@ -133,15 +128,3 @@ if __name__ == '__main__':
         input("Нажмите Enter чтоб закрыть")
     except KeyboardInterrupt:
         pass
-
-# /applicant/vacancy_response?vacancyId=108619916&employerId=561525&hhtmFrom=vacancy_search_list
-# /applicant/vacancy_response?vacancyId=108449101&employerId=205152&hhtmFrom=vacancy_search_list
-# /applicant/vacancy_response?vacancyId=109230802&employerId=6147000&hhtmFrom=vacancy_search_list
-# /applicant/vacancy_response?vacancyId=110425206&employerId=2795591&hhtmFrom=vacancy_search_list
-
-# data-qa="vacancy-serp__vacancy_response"
-# https://hh.ru/search/vacancy?text=фронтенд+разработчик&salary=15000&ored_clusters=true&only_with_salary=true&area=1&page=0&searchSessionId=4931e3c7-0041-443f-bac3-c062649becaa
-# 79960492309
-# Nasasal00
-
-# data-qa="vacancy-response-popup-form-letter-input"
